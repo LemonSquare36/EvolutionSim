@@ -45,8 +45,8 @@ namespace EvolutionSim
         public Matrix Transform(GraphicsDevice graphicsDevice)
         {
             //game is scaled to these amounts yo
-            var scaleX = (float)graphicsDevice.Viewport.Width / 800;
-            var scaleY = (float)graphicsDevice.Viewport.Height / 600;
+            var scaleX = (float)graphicsDevice.Viewport.Width / 2560;
+            var scaleY = (float)graphicsDevice.Viewport.Height / 1440;
 
             var translationMatrix = Matrix.CreateTranslation(new Vector3(Position.X, Position.Y, 0));
             var rotationMatrix = Matrix.CreateRotationZ(Rotation);

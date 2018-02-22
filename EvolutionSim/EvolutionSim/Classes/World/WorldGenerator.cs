@@ -18,6 +18,12 @@ namespace EvolutionSim
         {
             grassPos = new Vector2(0, 0);
             grass = Main.GameContent.Load<Texture2D>("Sprites/GrassLand");
+
+        }
+
+        public void RenderTiles(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(grass, grassPos, Color.White);
         }
     }
 }

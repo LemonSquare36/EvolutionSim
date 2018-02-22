@@ -12,11 +12,18 @@ namespace EvolutionSim
     class MainArea : ScreenManager
     {
         WorldGenerator worldGen = new WorldGenerator();
+        SpriteBatch spriteBatchMain;
 
         public MainArea()
         {
 
         }
+
+        public void getSpriteBatch(SpriteBatch spriteBatch)
+        {
+            spriteBatchMain = spriteBatch;
+        }
+
         public override void Initialize()
         {
             worldGen.GenerateTiles();
@@ -34,9 +41,7 @@ namespace EvolutionSim
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
-            spriteBatch.Draw(grass, grassPos, Color.White);
-            spriteBatch.End();
+            worldGen.RenderTiles(spriteBatchMain);
         }
     }
 }

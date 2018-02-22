@@ -41,18 +41,20 @@ namespace EvolutionSim
             //Camera Creation and base Window Size
             camera = new Camera();
             graphics.PreferredBackBufferHeight = 720;
-            graphics.PreferredBackBufferWidth = 960;
+            graphics.PreferredBackBufferWidth = 1280;
             graphics.ApplyChanges();
         }
 
 
         protected override void Initialize()
         {
-            //Screen Intiialized at start of Main Initalization
-            CurrentScreen = GameZone;
-            CurrentScreen.Initialize();
             //Spritebatch Creation
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            //Screen Intiialized at start of Main Initalization
+            CurrentScreen = GameZone;
+            GameZone.getSpriteBatch(spriteBatch);
+            CurrentScreen.Initialize();
             base.Initialize();
 
         }
@@ -96,11 +98,11 @@ namespace EvolutionSim
             //The matrix the game is drawn to
             var viewMatrix = camera.Transform(GraphicsDevice);
 
-            CurrentScreen.Draw(spriteBatch);
             //Spritebatch begin command called on the outside of commands to minimize its calls. Uses viewmatrix to draw the screen
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, null, null, viewMatrix * Matrix.CreateScale(1));
 
             //Draw Things here
+            CurrentScreen.Draw(spriteBatch);
 
             spriteBatch.End();
 
