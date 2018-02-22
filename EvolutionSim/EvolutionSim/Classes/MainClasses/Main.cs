@@ -19,8 +19,8 @@ namespace EvolutionSim
 
 
         //Allows other classes to load code from content manager - Convient
-        private static ContentManager  content;
-        public static  ContentManager GameContent
+        private static ContentManager content;
+        public static ContentManager GameContent
         {
             get { return content; }
             set { content = value; }
@@ -47,6 +47,7 @@ namespace EvolutionSim
             CurrentScreen.Initialize();
             spriteBatch = new SpriteBatch(GraphicsDevice);
             base.Initialize();
+
         }
 
         protected override void LoadContent()

@@ -13,6 +13,9 @@ namespace EvolutionSim
 {
     class MainArea : ScreenManager
     {
+
+        private Texture2D grass;
+
         public MainArea()
         {
 
