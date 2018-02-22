@@ -17,6 +17,7 @@ namespace EvolutionSim
         MainMenu Menu;
         MainArea GameZone;
 
+
         //Allows other classes to load code from content manager - Convient
         private static ContentManager  content;
         public static  ContentManager GameContent
