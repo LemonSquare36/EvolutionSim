@@ -15,6 +15,7 @@ namespace EvolutionSim
     {
 
         private Texture2D grass;
+        private Vector2 grassPos;
 
         public MainArea()
         {
@@ -22,12 +23,12 @@ namespace EvolutionSim
         }
         public override void Initialize()
         {
-            
+            grassPos = new Vector2(0, 0);
         }
 
         public override void LoadContent()
         {
-
+            grass = Main.GameContent.Load<Texture2D>("Sprites/GrassLand");
         }
 
         public override void Update()
@@ -37,7 +38,9 @@ namespace EvolutionSim
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-
+            spriteBatch.Begin();
+            spriteBatch.Draw(grass, grassPos, Color.White);
+            spriteBatch.End();
         }
     }
 }
