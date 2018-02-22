@@ -8,14 +8,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace EvolutionSim
-
-
 {
     class MainArea : ScreenManager
     {
-
-        private Texture2D grass;
-        private Vector2 grassPos;
+        WorldGenerator worldGen = new WorldGenerator();
 
         public MainArea()
         {
@@ -23,12 +19,12 @@ namespace EvolutionSim
         }
         public override void Initialize()
         {
-            grassPos = new Vector2(0, 0);
+            worldGen.GenerateTiles();
         }
 
         public override void LoadContent()
         {
-            grass = Main.GameContent.Load<Texture2D>("Sprites/GrassLand");
+            
         }
 
         public override void Update()
