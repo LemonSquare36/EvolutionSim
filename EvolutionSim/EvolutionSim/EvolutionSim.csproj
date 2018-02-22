@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Sprites\Asteroid.png" />
+    <Content Include="Content\Sprites\Herbivor.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
