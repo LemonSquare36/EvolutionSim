@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Sprites\Asteroid.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
