@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace EvolutionSim
 {
@@ -10,7 +14,8 @@ namespace EvolutionSim
     {
         public Plants()
         {
-
+            tag = "plant";
+            int food;
         }
         public override void Initialize()
         {
@@ -27,7 +32,7 @@ namespace EvolutionSim
 
         }
 
-        public override void Draw()
+        public override void Draw(SpriteBatch spritebatch)
         {
 
         }

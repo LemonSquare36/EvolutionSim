@@ -41,6 +41,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Classes\MainClasses\Camera.cs" />
     <Compile Include="Classes\Objects\Animals.cs" />
     <Compile Include="Classes\Objects\Carnivore.cs" />
     <Compile Include="Classes\Objects\Entity.cs" />

@@ -12,11 +12,12 @@ namespace EvolutionSim
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Camera camera;
+        KeyboardState key;
 
         ScreenManager CurrentScreen;
         MainMenu Menu;
         MainArea GameZone;
-
 
         //Allows other classes to load code from content manager - Convient
         private static ContentManager content;
@@ -31,20 +32,26 @@ namespace EvolutionSim
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-
             content = Content;
             IsMouseVisible = true;
-
+            //Screen Creation
             CurrentScreen = new ScreenManager();
             Menu = new MainMenu();
             GameZone = new MainArea();
+            //Camera Creation and base Window Size
+            camera = new Camera();
+            graphics.PreferredBackBufferHeight = 720;
+            graphics.PreferredBackBufferWidth = 960;
+            graphics.ApplyChanges();
         }
 
 
         protected override void Initialize()
         {
+            //Screen Intiialized at start of Main Initalization
             CurrentScreen = GameZone;
             CurrentScreen.Initialize();
+            //Spritebatch Creation
             spriteBatch = new SpriteBatch(GraphicsDevice);
             base.Initialize();
 
@@ -54,7 +61,6 @@ namespace EvolutionSim
         {
           
             CurrentScreen.LoadContent();
-
         }
 
 
@@ -70,6 +76,15 @@ namespace EvolutionSim
                 Exit();
 
             CurrentScreen.Update();
+            //Keyboard State updated with the game
+            key = Keyboard.GetState();
+            //Camera Move Command
+            camera.Move(key);
+            //fullscreen command set to O
+            if (key.IsKeyDown(Keys.O))
+            {
+                camera.ChangeScreenSize(graphics);
+            }
 
             base.Update(gameTime);
         }
@@ -78,8 +93,16 @@ namespace EvolutionSim
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            //The matrix the game is drawn to
+            var viewMatrix = camera.Transform(GraphicsDevice);
 
             CurrentScreen.Draw(spriteBatch);
+            //Spritebatch begin command called on the outside of commands to minimize its calls. Uses viewmatrix to draw the screen
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, null, null, viewMatrix * Matrix.CreateScale(1));
+
+            //Draw Things here
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
