@@ -12,6 +12,8 @@ namespace EvolutionSim
     class MainArea : ScreenManager
     {
         WorldGenerator worldGen = new WorldGenerator();
+        WorldRender worldRender = new WorldRender();
+
         SpriteBatch spriteBatchMain;
 
         public MainArea()
@@ -31,7 +33,7 @@ namespace EvolutionSim
 
         public override void LoadContent()
         {
-            
+            worldGen.loadTextures();
         }
 
         public override void Update()
@@ -41,6 +43,7 @@ namespace EvolutionSim
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+
             worldGen.RenderTiles(spriteBatchMain);
         }
     }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EvolutionSim.Classes.World
+namespace EvolutionSim
 {
-    class WorldRender
+    public class WorldRender
     {
 
     }
