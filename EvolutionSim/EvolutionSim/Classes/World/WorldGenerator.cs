@@ -14,9 +14,10 @@ namespace EvolutionSim
         private Texture2D grass;
         private Vector2 grassPos;
 
-        private const int grassSize = 32;
+        private const int tileSize = 32;
+        private const int ChunkSize = 512;
 
-        private int worldSizeX = 4;
+        private int worldSizeX = 2;
         private int worldSizeY = 2;
 
         private int tileOriginX = 0;
@@ -34,20 +35,23 @@ namespace EvolutionSim
 
         public void RenderTiles(SpriteBatch spriteBatch)
         {
-          //for (int WY = 0; WY < worldSizeY; WY++)
-          //{
-              for (int WX = 0; WX < worldSizeX; WX++)
+            for (int WY = 0; WY < worldSizeY; WY++)
+            {
+                for (int WX = 0; WX < worldSizeX; WX++)
                 {
-                    for (int _x = tileOriginX; _x < tileOriginX + 512; _x += grassSize)
+                    for (int _x = tileOriginX; _x < tileOriginX + ChunkSize; _x += tileSize)
                     {
-                        for (int _y = tileOriginY; _y < tileOriginY + 512; _y += grassSize)
+                        for (int _y = tileOriginY; _y < tileOriginY + ChunkSize; _y += tileSize)
                         {
                             grassPos = new Vector2(_x, _y);
                             spriteBatch.Draw(grass, grassPos, Color.White);
                             //System.Diagnostics.Debug.WriteLine("debug");
                         }
                     }
-                tileOriginX += 512;
+                    tileOriginX += ChunkSize;
+                }
+                tileOriginX = 0;
+                tileOriginY += ChunkSize;
             }
             tileOriginX = 0;
             tileOriginY = 0;
