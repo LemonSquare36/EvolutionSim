@@ -40,8 +40,8 @@ namespace EvolutionSim
             GameZone = new MainArea();
             //Camera Creation and base Window Size
             camera = new Camera();
-            graphics.PreferredBackBufferHeight = 720;
-            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 1080;
+            graphics.PreferredBackBufferWidth = 1920;
             graphics.ApplyChanges();
         }
 
