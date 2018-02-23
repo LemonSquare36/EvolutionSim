@@ -65,7 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Sprites\Asteroid.png" />
-    <Content Include="Content\Sprites\GrassLand.png" />
+    <Content Include="Content\Sprites\Grass_Tile.png" />
+    <Content Include="Content\Sprites\Plant_Grass.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>

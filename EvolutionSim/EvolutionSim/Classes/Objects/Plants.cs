@@ -12,6 +12,9 @@ namespace EvolutionSim
 {
     class Plants : Entity
     {
+
+        private Texture2D plant_grass;
+
         public Plants()
         {
             tag = "plant";
@@ -24,7 +27,7 @@ namespace EvolutionSim
 
         public override void LoadContent()
         {
-
+            plant_grass = Main.GameContent.Load<Texture2D>("Sprites/Plant_Grass");
         }
 
         public override void Update()

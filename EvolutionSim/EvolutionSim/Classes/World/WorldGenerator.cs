@@ -11,24 +11,24 @@ namespace EvolutionSim
 {
     public class WorldGenerator
     {
-        private Texture2D grass;
+        private Texture2D grass_tile;
         private Vector2 grassPos;
 
         private const int tileSize = 32;    //this remains the same as the grass tile sizes are 32x32 px
         private const int ChunkSize = 512;  //this is 32(tile size)x16, 16x16 tiles = 1 chunk.
 
-        private int worldSizeX = 2;        //This is what you can edit
-        private int worldSizeY = 2;        //this too.
+        private int worldSizeX = 5;        //This is what you can edit
+        private int worldSizeY = 3;        //this too.
 
-        private int originX = 200;         //This is where the world drawing begins from
-        private int originY = 200;
+        private int originX = 0;         //This is where the world drawing begins from
+        private int originY = 0;
 
         private int tileOriginX;           //These two values are used to store tile data of their positions
         private int tileOriginY;                
 
         public void loadTextures()
         {
-            grass = Main.GameContent.Load<Texture2D>("Sprites/GrassLand");
+            grass_tile = Main.GameContent.Load<Texture2D>("Sprites/Grass_Tile");
         }
 
         public void GenerateTiles()
@@ -48,8 +48,7 @@ namespace EvolutionSim
                         for (int _y = tileOriginY; _y < tileOriginY + ChunkSize; _y += tileSize)
                         {
                             grassPos = new Vector2(_x, _y);
-                            spriteBatch.Draw(grass, grassPos, Color.White);
-                            //System.Diagnostics.Debug.WriteLine("debug");
+                            spriteBatch.Draw(grass_tile, grassPos, Color.White);
                         }
                     }
                     tileOriginX += ChunkSize;
