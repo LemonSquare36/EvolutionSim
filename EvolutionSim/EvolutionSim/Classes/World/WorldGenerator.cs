@@ -14,14 +14,17 @@ namespace EvolutionSim
         private Texture2D grass;
         private Vector2 grassPos;
 
-        private const int tileSize = 32;
-        private const int ChunkSize = 512;
+        private const int tileSize = 32;    //this remains the same as the grass tile sizes are 32x32 px
+        private const int ChunkSize = 512;  //this is 32(tile size)x16, 16x16 tiles = 1 chunk.
 
-        private int worldSizeX = 2; //This is what you can edit
-        private int worldSizeY = 2; //this too.
+        private int worldSizeX = 2;        //This is what you can edit
+        private int worldSizeY = 2;        //this too.
 
-        private int tileOriginX = 0;
-        private int tileOriginY = 0;
+        private int originX = 200;         //This is where the world drawing begins from
+        private int originY = 200;
+
+        private int tileOriginX;           //These two values are used to store tile data of their positions
+        private int tileOriginY;                
 
         public void loadTextures()
         {
@@ -30,7 +33,8 @@ namespace EvolutionSim
 
         public void GenerateTiles()
         {
-
+            tileOriginX = originX;
+            tileOriginY = originY;
         }
 
         public void RenderTiles(SpriteBatch spriteBatch)
@@ -50,11 +54,11 @@ namespace EvolutionSim
                     }
                     tileOriginX += ChunkSize;
                 }
-                tileOriginX = 0;
+                tileOriginX = originX;
                 tileOriginY += ChunkSize;
             }
-            tileOriginX = 0;
-            tileOriginY = 0;
+            tileOriginX = originX;
+            tileOriginY = originY;
         }
     }
 }
