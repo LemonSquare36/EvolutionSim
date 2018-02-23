@@ -17,8 +17,8 @@ namespace EvolutionSim
         private const int tileSize = 32;
         private const int ChunkSize = 512;
 
-        private int worldSizeX = 2;
-        private int worldSizeY = 2;
+        private int worldSizeX = 2; //This is what you can edit
+        private int worldSizeY = 2; //this too.
 
         private int tileOriginX = 0;
         private int tileOriginY = 0;
